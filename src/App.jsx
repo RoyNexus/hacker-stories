@@ -35,32 +35,34 @@ function App() {
         {welcome.greeting} {welcome.title}
       </h1>
 
-      <label htmlFor='search'>Search: </label>
-      <input id="search" type="text" />
+      <Search />
 
       <List />
     </div>
   )
 }
 
-function List() {
-  return (
-    <ul>
-      {list.map(function (item) {
-        return (
-          <li key={item.objectID}>
-            <span>
-              <a href={item.url}>{item.title}</a>
-            </span>
-            <span>{item.author}</span>
-            <span>{item.num_comments}</span>
-            <span>{item.points}</span>
-          </li>
-        );
-      })}
+const Search = () => (
+  <div>
+    <label htmlFor='search'>Search: </label>
+    <input id="search" type="text" />
+  </div>
+);
 
-    </ul>
-  );
-}
+const List = () => (
+  <ul>
+    {list.map((item) => (
+      <li key={item.objectID}>
+        <span>
+          <a href={item.url}>{item.title}</a>
+        </span>
+        <span>{item.author}</span>
+        <span>{item.num_comments}</span>
+        <span>{item.points}</span>
+      </li>
+    ))}
+  </ul>
+);
+
 
 export default App
